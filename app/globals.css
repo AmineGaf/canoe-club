@@ -1,26 +1,217 @@
 @import "tailwindcss";
 
+/* Lenis Smooth Scroll Styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Performance optimizations for smooth scrolling */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Optimize transforms and animations */
+* {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  perspective: 1000;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 0 0% 100%;
+  --foreground: 0 0% 17%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --ring: 18 61% 53%;
+  --radius: 0.5rem;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@theme {
+  /* Canoe Club Brand Colors */
+  --color-canoe-orange: #D97038;
+  --color-canoe-red: #C84C3C;
+  --color-canoe-blue: #2B5D7E;
+  --color-canoe-tan: #E8DCC4;
+  
+  /* Dark Palette */
+  --color-dark-navy: #1A2B3C;
+  --color-dark-charcoal: #2C2C2C;
+  --color-dark-slate: #3A4D5C;
+  
+  /* Light Palette */
+  --color-cream: #F5F1E8;
+  --color-off-white: #FAF8F5;
+  --color-warm-white: #FFF9F0;
+  
+  /* Fonts */
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-merriweather);
+  --font-display: var(--font-bebas);
+  
+  /* Display font sizes */
+  --font-size-display-xl: 5rem;
+  --font-size-display-lg: 4rem;
+  --font-size-display-md: 3rem;
+  
+  /* Spacing */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-128: 32rem;
+  
+  /* Shadows */
+  --shadow-warm: 0 10px 40px rgba(217, 112, 56, 0.15);
+  --shadow-lg-warm: 0 20px 60px rgba(217, 112, 56, 0.2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: hsl(var(--border));
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-cream);
+  color: var(--color-dark-charcoal);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 700;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--color-cream);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-canoe-orange);
+  border-radius: 9999px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-canoe-red);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(to right, var(--color-canoe-orange), var(--color-canoe-red));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Smooth scroll */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-canoe-orange);
+  color: white;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-canoe-orange);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Smooth scroll - REMOVED: Lenis handles this */
+
+/* Better focus states */
+*:focus-visible {
+  outline: 2px solid #D97038;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Image loading shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.image-loading {
+  background: linear-gradient(
+    to right,
+    #f0f0f0 0%,
+    #e0e0e0 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Smooth transitions for dynamic islands */
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Text shine effect on hover */
+@keyframes shine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shine:hover {
+  background: linear-gradient(
+    to right,
+    #D97038 0%,
+    #FFB800 50%,
+    #D97038 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 2s linear infinite;
 }
