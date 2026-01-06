@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   title: "Canoe Club | Lake Lotawana's Premier Waterfront Restaurant",
   description: "Jackson County's favorite gathering place since 2007. Famous Phish Tacos, Live Music, Prime Rib Weekends, and stunning lake views at Lake Lotawana, Missouri.",
   keywords: "Canoe Club, Lake Lotawana restaurant, Kansas City dining, Phish Tacos, waterfront restaurant, live music venue, prime rib, Missouri restaurants",
+  icons: {
+    icon: '/images/canoe-club-logo.png',
+    apple: '/images/canoe-club-logo.png',
+  },
 };
 
 export default function RootLayout({

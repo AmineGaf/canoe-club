@@ -152,9 +152,9 @@ export function Navigation() {
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="absolute right-0 top-0 bottom-0 w-full max-w-sm bg-[var(--color-dark-charcoal)] shadow-2xl overflow-y-auto"
             >
-              <div className="flex flex-col h-full pt-24 px-8 pb-8">
+              <div className="flex flex-col h-full pt-20 sm:pt-24 px-6 sm:px-8 pb-6 sm:pb-8">
                 {/* Mobile Nav Links */}
-                <div className="flex flex-col gap-6 mb-12">
+                <div className="flex flex-col gap-4 sm:gap-6 mb-8 sm:mb-12">
                   {navLinks.map((link, index) => (
                     <motion.div
                       key={link.href}
@@ -165,7 +165,7 @@ export function Navigation() {
                       <Link
                         href={link.href}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="block font-display text-4xl text-white hover:text-[var(--color-canoe-orange)] transition-colors"
+                        className="block font-display text-3xl sm:text-4xl text-white hover:text-[var(--color-canoe-orange)] transition-colors touch-manipulation active:scale-95 py-2"
                       >
                         {link.label}
                       </Link>
@@ -182,10 +182,10 @@ export function Navigation() {
                 >
                   <a 
                     href="tel:8165785700"
-                    className="flex items-center gap-3 text-white font-sans text-lg"
+                    className="flex items-center gap-3 text-white font-sans text-base sm:text-lg hover:text-[var(--color-canoe-orange)] transition-colors touch-manipulation active:scale-95 py-2"
                   >
-                    <Phone className="w-5 h-5" />
-                    (816) 578-5700
+                    <Phone className="w-5 h-5 flex-shrink-0" />
+                    <span>(816) 578-5700</span>
                   </a>
                   
                   <Button
@@ -194,7 +194,7 @@ export function Navigation() {
                       setMobileMenuOpen(false);
                       setBookingModalOpen(true);
                     }}
-                    className="w-full bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider"
+                    className="w-full bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 touch-manipulation active:scale-95"
                   >
                     Book a Table
                   </Button>

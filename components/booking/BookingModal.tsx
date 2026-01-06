@@ -117,27 +117,27 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl overflow-hidden pointer-events-auto flex flex-col max-h-[calc(110vh-3rem)]"
+              className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden pointer-events-auto flex flex-col max-h-[calc(100vh-2rem)] sm:max-h-[calc(110vh-3rem)]"
             >
               {/* Header */}
-              <div className="relative bg-gradient-to-r from-[var(--color-canoe-orange)] to-[var(--color-canoe-red)] p-5 md:p-6 text-white flex-shrink-0">
+              <div className="relative bg-gradient-to-r from-[var(--color-canoe-orange)] to-[var(--color-canoe-red)] p-4 sm:p-5 md:p-6 text-white flex-shrink-0">
                 <button
                   onClick={onClose}
-                  className="absolute top-3 right-3 md:top-4 md:right-4 w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all duration-300 hover:scale-110 group z-10"
+                  className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 md:top-4 md:right-4 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/20 hover:bg-white/30 active:bg-white/40 flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 group z-10 touch-manipulation"
                 >
-                  <X className="w-4 h-4 md:w-5 md:h-5 group-hover:rotate-90 transition-transform duration-300" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5 group-hover:rotate-90 transition-transform duration-300" />
                 </button>
                 
-                <div className="pr-10">
-                  <h2 className="font-display text-2xl md:text-3xl lg:text-4xl mb-1">Book a Table</h2>
-                  <p className="font-sans text-xs md:text-sm text-white/90">
+                <div className="pr-8 sm:pr-10">
+                  <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-0.5 sm:mb-1">Book a Table</h2>
+                  <p className="font-sans text-[10px] sm:text-xs md:text-sm text-white/90">
                     Reserve your spot at Canoe Club
                   </p>
                 </div>
               </div>
 
               {/* Content - Scrollable */}
-              <div className="p-5 md:p-6 overflow-y-auto flex-1 min-h-0">
+              <div className="p-4 sm:p-5 md:p-6 overflow-y-auto flex-1 min-h-0">
                     {isSubmitted ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -166,7 +166,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     </p>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                     {/* Name */}
                     <div>
                       <label htmlFor="name" className="block font-sans text-xs font-semibold text-[var(--color-dark-charcoal)] mb-1.5">
@@ -179,13 +179,13 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-[var(--color-canoe-orange)] focus:outline-none transition-colors font-sans text-sm"
+                        className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-2 border-gray-200 focus:border-[var(--color-canoe-orange)] focus:outline-none transition-colors font-sans text-sm touch-manipulation"
                         placeholder="John Doe"
                       />
                     </div>
 
                     {/* Email & Phone Row */}
-                    <div className="grid md:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label htmlFor="email" className="block font-sans text-xs font-semibold text-[var(--color-dark-charcoal)] mb-1.5">
                           <Mail className="w-3 h-3 inline mr-1" />
@@ -198,7 +198,7 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-[var(--color-canoe-orange)] focus:outline-none transition-colors font-sans text-sm"
+                          className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-2 border-gray-200 focus:border-[var(--color-canoe-orange)] focus:outline-none transition-colors font-sans text-sm touch-manipulation"
                           placeholder="john@example.com"
                         />
                       </div>
@@ -214,14 +214,14 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                           required
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-3 py-2 rounded-lg border-2 border-gray-200 focus:border-[var(--color-canoe-orange)] focus:outline-none transition-colors font-sans text-sm"
+                          className="w-full px-3 py-2.5 sm:py-2 rounded-lg border-2 border-gray-200 focus:border-[var(--color-canoe-orange)] focus:outline-none transition-colors font-sans text-sm touch-manipulation"
                           placeholder="(816) 555-1234"
                         />
                       </div>
                     </div>
 
                     {/* Date & Time Row */}
-                    <div className="grid md:grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <div>
                         <label htmlFor="date" className="block font-sans text-xs font-semibold text-[var(--color-dark-charcoal)] mb-1.5">
                           <Calendar className="w-3 h-3 inline mr-1" />
@@ -319,28 +319,28 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
                     </div>
 
                     {/* Submit Button */}
-                    <div className="flex gap-3 pt-3 border-t border-gray-100 mt-2">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 pt-3 border-t border-gray-100 mt-2">
                       <Button
                         type="button"
                         variant="outline"
                         onClick={onClose}
-                        className="flex-1 border-2 border-gray-300 text-gray-700 hover:bg-gray-50"
+                        className="flex-1 border-2 border-gray-300 text-gray-700 hover:bg-gray-50 text-xs sm:text-sm px-4 sm:px-6 py-2.5 sm:py-3 touch-manipulation active:scale-95"
                       >
                         Cancel
                       </Button>
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex-1 bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider shadow-lg shadow-[var(--color-canoe-orange)]/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="flex-1 bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider text-xs sm:text-sm px-4 sm:px-6 py-2.5 sm:py-3 shadow-lg shadow-[var(--color-canoe-orange)]/30 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation active:scale-95"
                       >
                         {isSubmitting ? (
                           <span className="flex items-center gap-2">
                             <motion.div
                               animate={{ rotate: 360 }}
                               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                              className="w-4 h-4 border-2 border-white border-t-transparent rounded-full"
+                              className="w-3 h-3 sm:w-4 sm:h-4 border-2 border-white border-t-transparent rounded-full"
                             />
-                            Submitting...
+                            <span className="text-xs sm:text-sm">Submitting...</span>
                           </span>
                         ) : (
                           'Request Reservation'
