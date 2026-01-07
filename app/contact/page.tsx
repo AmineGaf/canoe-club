@@ -139,7 +139,7 @@ export default function Contact() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full px-6 py-3 bg-sunset-orange text-white hover:bg-copper transition-all duration-300 rounded-lg font-inter font-medium uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
+                    className="w-full px-6 py-3 bg-sunset-orange hover:bg-copper transition-all duration-300 rounded-lg font-inter font-medium uppercase tracking-wider flex items-center justify-center gap-2 shadow-md hover:shadow-lg"
                   >
                     <Send size={18} />
                     Send Message
