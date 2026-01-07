@@ -112,12 +112,17 @@ export function LocationSection() {
 
             {/* CTA */}
             <div className="pt-2 sm:pt-4">
-              <a href="tel:8165785700" className="block">
+              <a 
+                href="https://www.toasttab.com/canoe-club-lees-summit/giftcards"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
                 <Button 
                   size="lg"
                   className="w-full bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider text-xs sm:text-sm px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 shadow-warm transition-all duration-300 hover:scale-105 active:scale-95 touch-manipulation"
                 >
-                  Call to Book
+                  Buy Gift Cards
                 </Button>
               </a>
             </div>
