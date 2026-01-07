@@ -7,7 +7,6 @@ import Image from 'next/image';
 import { Menu, X, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { BookingModal } from '@/components/booking/BookingModal';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -26,7 +25,6 @@ export function Navigation() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [bookingModalOpen, setBookingModalOpen] = useState(false);
   
   // Check if current page has light background
   const isLightBackground = lightBackgroundPages.some(page => pathname?.startsWith(page));
@@ -107,13 +105,18 @@ export function Navigation() {
                 (816) 578-5700
               </a>
               
-              <Button
-                size="sm"
-                onClick={() => setBookingModalOpen(true)}
-                className="bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider shadow-lg shadow-[var(--color-canoe-orange)]/30 hover:shadow-xl hover:shadow-[var(--color-canoe-orange)]/40 transition-all duration-300 hover:scale-105"
+              <a
+                href="https://www.toasttab.com/canoe-club-lees-summit/giftcards"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Book Table
-              </Button>
+                <Button
+                  size="sm"
+                  className="bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider shadow-lg shadow-[var(--color-canoe-orange)]/30 hover:shadow-xl hover:shadow-[var(--color-canoe-orange)]/40 transition-all duration-300 hover:scale-105"
+                >
+                  Gift Cards
+                </Button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -188,16 +191,20 @@ export function Navigation() {
                     <span>(816) 578-5700</span>
                   </a>
                   
-                  <Button
-                    size="lg"
-                    onClick={() => {
-                      setMobileMenuOpen(false);
-                      setBookingModalOpen(true);
-                    }}
-                    className="w-full bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 touch-manipulation active:scale-95"
+                  <a
+                    href="https://www.toasttab.com/canoe-club-lees-summit/giftcards"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="w-full block"
                   >
-                    Book a Table
-                  </Button>
+                    <Button
+                      size="lg"
+                      className="w-full bg-[var(--color-canoe-orange)] hover:bg-[var(--color-canoe-red)] text-white font-sans uppercase tracking-wider text-sm sm:text-base px-6 sm:px-8 py-5 sm:py-6 touch-manipulation active:scale-95"
+                    >
+                      Gift Cards
+                    </Button>
+                  </a>
                 </motion.div>
               </div>
             </motion.div>
@@ -205,12 +212,6 @@ export function Navigation() {
         )}
       </AnimatePresence>
 
-      
-      
-      <BookingModal 
-        isOpen={bookingModalOpen} 
-        onClose={() => setBookingModalOpen(false)} 
-      />
     </>
   );
 }
